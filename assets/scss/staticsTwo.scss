@@ -1,0 +1,96 @@
+.statistics-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 210px;
+
+    border-radius: 8px;
+    padding: 12px 27px;
+}
+
+.doughnut-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 186.75px;
+    height: 186.75px;
+
+    .char-icon-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 89px;
+        height: 89px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+    }
+}
+
+.comments-count-container {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    .count-title {
+        display: flex;
+
+        .count {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 16px;
+            margin-left: 12px;
+        }
+
+        .description {
+            font-style: normal;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            color: #a6acbe;
+        }
+    }
+}
+
+.comment-info {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+
+    .title {
+        margin-right: 8px;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: right;
+        letter-spacing: 0.01em;
+        color: #a6acbe;
+    }
+
+    .percent {
+        margin-right: auto;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: right;
+        letter-spacing: 0.01em;
+        color: #a6acbe;
+    }
+
+    .count {
+        margin-right: 8px;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: right;
+        letter-spacing: 0.01em;
+        color: #000000;
+    }
+}
+
+.font-iran-sans {
+    font-family: 'IRANSans-X';
+}

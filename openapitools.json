@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "5.1.1",
+    "generators": {
+      "reputation": {
+        "generatorName": "typescript-axios",
+        "output": "#{cwd}/api/reputation",
+        "inputSpec": "https://accommodations.dev.radar361.com/swagger/accommodation-owner/swagger.json",
+        "apiPackage": "api",
+        "modelPackage": "model",
+        "additionalProperties": {
+          "supportsES6": true,
+          "useSingleRequestParameter": true,
+          "withSeparateModelsAndApi": true
+        }
+      },
+      "auth": {
+        "generatorName": "typescript-axios",
+        "output": "#{cwd}/api/auth",
+        "inputSpec": "https://users.dev.radar361.com/swagger/user/swagger.json",
+        "apiPackage": "api",
+        "modelPackage": "model",
+        "additionalProperties": {
+          "supportsES6": true,
+          "useSingleRequestParameter": true,
+          "withSeparateModelsAndApi": true
+        }
+      }
+    }
+  }
+}

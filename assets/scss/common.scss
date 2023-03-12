@@ -1,0 +1,56 @@
+@import './variables.scss';
+
+:root {
+	--radar-red: #{$radar-red};
+}
+
+* {
+	box-sizing: border-box;
+	outline: 0 !important;
+}
+
+html,
+body {
+	font-family: IRANSans-X;
+	color: #000000;
+	margin: 0;
+	background: whitesmoke;
+	-webkit-tap-highlight-color: rgba($color: $radar-red, $alpha: 0.1);
+}
+
+body {
+	font-size: 15px;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+// skeleton
+.loading-skeleton {
+	background: #fff2f0;
+	background-image: linear-gradient(
+		90deg,
+		#e1e7ed 15%,
+		#e9edf2 40%,
+		#e1e7ed 55%
+	) !important;
+	background-size: 200% 100% !important;
+	animation: 1.5s shine-skeleton linear infinite !important;
+	color: transparent !important;
+	border-radius: 8px !important;
+	user-select: none !important;
+	cursor: unset !important;
+	* {
+		color: transparent !important;
+	}
+	&.no-br {
+		border-radius: 0 !important;
+	}
+}
+
+@keyframes shine-skeleton {
+	to {
+		background-position-x: 200%;
+	}
+}

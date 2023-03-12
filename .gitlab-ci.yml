@@ -1,0 +1,53 @@
+stages:
+  - release_image
+
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - .npm/
+
+release_image:dev:
+  stage: release_image
+  image: core.harbor.mrbilit.net/hub/library/docker:git
+  services:
+    - name: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+    DOCKER_TLS_CERTDIR: ""
+  only:
+    - dev
+  before_script:
+    - echo "ACCOMMODATIONS_SERVICE_BASE_URL=https://accommodations.dev.radar361.com" > .env
+    - echo "USERS_SERVICE_BASE_URL=https://users.dev.radar361.com" >> .env
+    - docker info
+    - docker login -u $REGISTRY_USERNAME -p $REGISTRY_TOKEN $REGISTRY
+  script:
+    - docker build --tag $REGISTRY/radar361/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG .
+    - docker push $REGISTRY/radar361/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG
+  after_script:
+    - docker image prune -f
+    - docker logout
+
+release_image:main:
+  stage: release_image
+  image: core.harbor.mrbilit.net/hub/library/docker:git
+  services:
+    - name: docker:dind
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    MOUNT_POINT: /builds/$CI_PROJECT_PATH/
+    DOCKER_TLS_CERTDIR: ""
+  only:
+    - main
+  before_script:
+    - echo "ACCOMMODATIONS_SERVICE_BASE_URL=https://accommodations.radar361.com" > .env
+    - echo "USERS_SERVICE_BASE_URL=https://users.radar361.com" >> .env
+    - docker info
+    - docker login -u $REGISTRY_USERNAME -p $REGISTRY_TOKEN $REGISTRY
+  script:
+    - docker build --tag $REGISTRY/radar361/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG .
+    - docker push $REGISTRY/radar361/$CI_PROJECT_NAME:$CI_COMMIT_REF_SLUG
+  after_script:
+    - docker image prune -f
+    - docker logout

@@ -1,0 +1,77 @@
+.statistics-container {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    height: 210px;
+    background: #ffffff;
+    border: 1px solid #dfe0eb;
+    border-radius: 8px;
+    padding: 12px 100px;
+}
+
+.extra-info {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+
+    .rage-info-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .point {
+            position: absolute;
+            right: 37px;
+            top: 40%;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 30px;
+            line-height: 16px;
+            text-align: right;
+            color: #8dc100;
+        }
+
+        .title {
+            margin-right: 11px;
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 16px;
+            text-align: right;
+            color: #a6acbe;
+        }
+    }
+
+    .helper {
+        display: flex;
+        align-items: center;
+        margin-right: 40px;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: right;
+        letter-spacing: 0.01em;
+        color: #a6acbe;
+
+        &.orange {
+            &::before {
+                background: #ffaa00;
+            }
+        }
+
+        &.blue {
+            margin-top: 12px;
+
+            &::before {
+                background: #0093ee;
+            }
+        }
+
+        &::before {
+            content: ' ';
+            width: 8px;
+            height: 8px;
+            border-radius: 100%;
+            margin-left: 8px;
+        }
+    }
+}
